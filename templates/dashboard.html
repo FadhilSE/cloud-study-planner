@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+    <h2>Your Tasks</h2>
+
+    <input id="title" placeholder="Task title">
+    <input id="description" placeholder="Description">
+    <input id="due_date" placeholder="Due date">
+    <button onclick="createTask()">Add Task</button>
+
+    <ul id="taskList"></ul>
+
+    <button onclick="logout()">Logout</button>
+</div>
+
+<script src="/static/app.js"></script>
+<script>
+    loadTasks();
+</script>
+</body>
+</html>
