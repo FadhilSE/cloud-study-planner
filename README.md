@@ -65,6 +65,16 @@ cloud-study-planner/
 - GitHub repository active
 - Check-In #2 milestone completed
 
+
+## Latest Progress (Check-In #2)
+
+- Completed functional user registration and login system
+- Dashboard supports task creation and deletion
+- Frontend connected successfully to Flask backend
+- Database integration completed for users and tasks
+- GitHub repository updated with active commits
+- Project ready for next phase: Docker and AWS deployment
+
 ## Future Improvements
 
 - Task editing and status updates
