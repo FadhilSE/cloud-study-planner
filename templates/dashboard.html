@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container dashboard-container">
+    <h2>Cloud Study Planner Dashboard</h2>
+
+    <input id="title" placeholder="Task title">
+    <input id="description" placeholder="Description">
+    <input id="due_date" type="date">
+
+    <select id="status">
+        <option>Pending</option>
+        <option>In Progress</option>
+        <option>Completed</option>
+    </select>
+
+    <select id="priority">
+        <option>Low</option>
+        <option selected>Medium</option>
+        <option>High</option>
+    </select>
+
+    <button onclick="createTask()">Add Task</button>
+
+    <hr>
+
+    <input id="searchInput" placeholder="Search tasks..." oninput="loadTasks()">
+
+    <div class="filters">
+        <button onclick="setFilter('All')">All</button>
+        <button onclick="setFilter('Pending')">Pending</button>
+        <button onclick="setFilter('In Progress')">In Progress</button>
+        <button onclick="setFilter('Completed')">Completed</button>
+    </div>
+
+    <ul id="taskList"></ul>
+
+    <button onclick="logout()">Logout</button>
+</div>
+
+<script src="/static/app.js"></script>
+<script>
+    loadTasks();
+</script>
+</body>
+</html>

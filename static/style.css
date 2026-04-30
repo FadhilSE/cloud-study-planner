@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 650px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 18px;
+    margin: 6px 4px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.filters {
+    text-align: center;
+    margin: 10px 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.task-card {
+    background: #f9fafb;
+    margin-top: 12px;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 6px solid #999;
+}
+
+.task-card.low { border-left-color: green; }
+.task-card.medium { border-left-color: orange; }
+.task-card.high { border-left-color: red; }
+
+.warning {
+    font-weight: bold;
+}
+
+.overdue .warning { color: red; }
+.due-today .warning { color: orange; }
+.upcoming .warning { color: green; }
