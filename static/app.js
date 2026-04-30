@@ -1,5 +1,8 @@
 const API = "/api";
+<<<<<<< HEAD
 let currentFilter = "All";
+=======
+>>>>>>> ac87004a469b93976befbc5054771a30ce2ee785
 
 async function register() {
     const username = document.getElementById("username").value;
@@ -13,6 +16,7 @@ async function register() {
     });
 
     const data = await res.json();
+<<<<<<< HEAD
 
     if (res.status === 201) {
         document.getElementById("message").innerText =
@@ -24,6 +28,9 @@ async function register() {
     } else {
         document.getElementById("message").innerText = data.error;
     }
+=======
+    document.getElementById("message").innerText = data.message || data.error;
+>>>>>>> ac87004a469b93976befbc5054771a30ce2ee785
 }
 
 async function login() {
@@ -46,6 +53,7 @@ async function login() {
     }
 }
 
+<<<<<<< HEAD
 function setFilter(status) {
     currentFilter = status;
     loadTasks();
@@ -69,6 +77,10 @@ async function loadTasks() {
     const search = document.getElementById("searchInput")?.value || "";
 
     const res = await fetch(`${API}/tasks?status=${currentFilter}&search=${search}`, {
+=======
+async function loadTasks() {
+    const res = await fetch(`${API}/tasks`, {
+>>>>>>> ac87004a469b93976befbc5054771a30ce2ee785
         credentials: "include"
     });
 
@@ -79,6 +91,7 @@ async function loadTasks() {
     list.innerHTML = "";
 
     tasks.forEach(task => {
+<<<<<<< HEAD
         const warning = getDueWarning(task.due_date);
 
         const li = document.createElement("li");
@@ -96,25 +109,41 @@ async function loadTasks() {
             <button onclick="deleteTask(${task.id})">Delete</button>
         `;
 
+=======
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <strong>${task.title}</strong><br>
+            ${task.description || ""}<br>
+            ${task.due_date || ""}<br>
+            <button onclick="deleteTask(${task.id})">Delete</button>
+        `;
+>>>>>>> ac87004a469b93976befbc5054771a30ce2ee785
         list.appendChild(li);
     });
 }
 
+<<<<<<< HEAD
 function escapeText(text) {
     return text.replace(/'/g, "\\'");
 }
 
+=======
+>>>>>>> ac87004a469b93976befbc5054771a30ce2ee785
 async function createTask() {
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;
     const due_date = document.getElementById("due_date").value;
+<<<<<<< HEAD
     const status = document.getElementById("status").value;
     const priority = document.getElementById("priority").value;
+=======
+>>>>>>> ac87004a469b93976befbc5054771a30ce2ee785
 
     await fetch(`${API}/tasks`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         credentials: "include",
+<<<<<<< HEAD
         body: JSON.stringify({ title, description, due_date, status, priority })
     });
 
@@ -146,6 +175,9 @@ async function editTask(id, oldTitle, oldDescription, oldDueDate, oldStatus, old
         headers: {"Content-Type": "application/json"},
         credentials: "include",
         body: JSON.stringify({ title, description, due_date, status, priority })
+=======
+        body: JSON.stringify({ title, description, due_date })
+>>>>>>> ac87004a469b93976befbc5054771a30ce2ee785
     });
 
     loadTasks();

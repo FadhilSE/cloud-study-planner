@@ -3,8 +3,14 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
+<<<<<<< HEAD
     </content>
     <orderEntry type="inheritedJdk" />
+=======
+      <excludeFolder url="file://$MODULE_DIR$/.venv314" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3.14 (cloud study planner)" jdkType="Python SDK" />
+>>>>>>> ac87004a469b93976befbc5054771a30ce2ee785
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
