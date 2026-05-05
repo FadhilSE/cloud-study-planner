@@ -89,15 +89,15 @@ async function loadTasks() {
         li.className = `task-card ${task.priority.toLowerCase()} ${warning.toLowerCase().replace(" ", "-")}`;
 
         li.innerHTML = `
-            <strong>${task.title}</strong><br>
-            ${task.description || ""}<br>
-            Due: ${task.due_date || "No due date"}<br>
-            Status: ${task.status}<br>
-            Priority: ${task.priority}<br>
-            <span class="warning">${warning}</span><br>
+            <strong>📌 ${task.title}</strong><br>
+            📝 ${task.description || "No description"}<br>
+            📅 Due: ${task.due_date || "No due date"}<br>
+            📊 Status: ${task.status}<br>
+            🔥 Priority: ${task.priority}<br>
+            <span class="warning">⏰ ${warning}</span><br>
             <button onclick="editTask(${task.id})">Edit</button>
             <button onclick="deleteTask(${task.id})">Delete</button>
-        `;
+`;
 
         list.appendChild(li);
     });
@@ -120,6 +120,13 @@ async function createTask() {
     document.getElementById("title").value = "";
     document.getElementById("description").value = "";
     document.getElementById("due_date").value = "";
+
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+        searchInput.value = "";
+    }
+
+    currentFilter = "All";
 
     loadTasks();
 }
