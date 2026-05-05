@@ -26,12 +26,8 @@ class Task(db.Model):
     title = db.Column(db.String(150), nullable=False)
     description = db.Column(db.Text, nullable=True)
     due_date = db.Column(db.String(50), nullable=True)
-<<<<<<< HEAD
     status = db.Column(db.String(20), default="Pending")
     priority = db.Column(db.String(20), default="Medium")
-=======
-    status = db.Column(db.String(20), default="pending")
->>>>>>> ac87004a469b93976befbc5054771a30ce2ee785
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
@@ -43,10 +39,7 @@ class Task(db.Model):
             "description": self.description,
             "due_date": self.due_date,
             "status": self.status,
-<<<<<<< HEAD
             "priority": self.priority,
-=======
->>>>>>> ac87004a469b93976befbc5054771a30ce2ee785
             "created_at": self.created_at.isoformat(),
             "user_id": self.user_id
         }
