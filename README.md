@@ -2,11 +2,7 @@
 
 Cloud Study Planner is a full-stack web application designed to help students organize and manage their academic tasks in one place. The system allows users to register, log in securely, and manage personal study tasks through a clean dashboard interface.
 
-This project was built as a cloud computing team project to demonstrate real-world web development concepts, including backend APIs, authentication, databases, version control, and cloud deployment readiness.
-
-# Cloud Study Planner
-
-Cloud Study Planner is a full-stack web application designed to help students organize and manage their academic tasks in one place. The system allows users to register, log in securely, and manage personal study tasks through a clean dashboard interface.
+This project was built as a team project in cloud computing to demonstrate real-world web development concepts, including backend APIs, authentication, databases, version control, and cloud deployment readiness.
 
 ## 🌐 Live Application
 
