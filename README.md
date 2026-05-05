@@ -8,13 +8,17 @@ This project was built as a cloud computing team project to demonstrate real-wor
 
 - User registration and secure login
 - Personal dashboard for task management
-- Create, view, and delete study tasks
+- Create, view, update, and delete study tasks
+- Task status tracking: Pending, In Progress, Completed
+- Priority levels: Low, Medium, High
+- Search and filter tasks
+- Due-date warning labels: Overdue, Due Today, Upcoming
 - Session-based authentication
 - Password hashing for security
 - Rate limiting for API protection
 - Responsive frontend interface
 - GitHub version control collaboration
-- Ready for Docker and AWS deployment
+- Docker and AWS deployment ready
 
 ## Technologies Used
 
@@ -61,9 +65,12 @@ cloud-study-planner/
 - Backend API completed
 - Authentication system completed
 - Dashboard UI completed
-- Task CRUD functionality working
+- Full task CRUD functionality working
+- Task editing, filtering, search, priority, and due-date warning features added
+- GitHub Actions CI/CD workflow completed
+- Dockerfile added for containerization
+- API documentation completed
 - GitHub repository active
-- Check-In #2 milestone completed
 
 
 ## Latest Progress (Check-In #2)
