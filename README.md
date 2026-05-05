@@ -2,13 +2,14 @@
 
 Cloud Study Planner is a full-stack web application designed to help students organize and manage their academic tasks in one place. The system allows users to register, log in securely, and manage personal study tasks through a clean dashboard interface.
 
-This project was built as a team project in cloud computing to demonstrate real-world web development concepts, including backend APIs, authentication, databases, version control, and cloud deployment readiness.
+![Python](https://img.shields.io/badge/Python-3.11-blue)![Flask](https://img.shields.io/badge/Flask-Web%20Framework-black)![Docker](https://img.shields.io/badge/Docker-Containerized-blue)![AWS EC2](https://img.shields.io/badge/AWS-EC2-orange)![CI](https://img.shields.io/badge/CI-GitHub%20Actions-green)![Status](https://img.shields.io/badge/Status-Deployed-success)
+
 
 ## 🌐 Live Application
 
 http://3.134.89.182:5000
 
-## Features
+## ✨Features
 
 - User registration and secure login
 - Personal dashboard for task management
@@ -25,7 +26,7 @@ http://3.134.89.182:5000
 - Docker containerization
 - AWS EC2 deployment (live public URL)
 
-## Technologies Used
+## 🛠️Technologies Used
 
 ### Backend
 - Python
@@ -52,7 +53,7 @@ http://3.134.89.182:5000
 - AWS EC2
 - GitHub Actions (CI/CD)
 
-## Project Structure
+## 📁Project Structure
 
 cloud-study-planner/
 │── app.py # Application entry point
@@ -70,7 +71,7 @@ cloud-study-planner/
 ├── templates/ # HTML templates
 ├── static/ # CSS, JavaScript files
 
-## Deployment
+## 🚀Deployment
 
 The application is deployed on AWS EC2 using Docker.
 
@@ -83,7 +84,7 @@ Steps:
 Public URL:
 http://3.134.89.182:5000
 
-## Current Progress
+## 📌Current Progress
 
 - Backend API completed
 - Authentication system completed
@@ -96,14 +97,14 @@ http://3.134.89.182:5000
 - API documentation completed
 - GitHub repository active
 
-## API Documentation
+## 📘API Documentation
 
 Full API documentation is available in:
 
 API_DOCUMENTATION.md
 
 
-## Future Improvements
+## 🔮Future Improvements
 
 - Advanced task analytics and productivity charts
 - Dark mode UI
@@ -112,7 +113,7 @@ API_DOCUMENTATION.md
 - Migration to AWS RDS for production database
 - HTTPS deployment with a custom domain
 
-## Team Collaboration
+## 👥Team Collaboration
 
 This project was developed collaboratively using GitHub version control with divided responsibilities across backend development, frontend UI, testing, and deployment preparation.
 
