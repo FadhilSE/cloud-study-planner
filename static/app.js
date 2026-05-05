@@ -1,13 +1,13 @@
 const API = "/api";
-<<<<<<< HEAD
 let currentFilter = "All";
-=======
->>>>>>> ac87004a469b93976befbc5054771a30ce2ee785
 
 async function register() {
-    const username = document.getElementById("username").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const message = document.getElementById("message");
+    message.innerText = "Registering...";
+
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
     const res = await fetch(`${API}/register`, {
         method: "POST",
@@ -16,26 +16,23 @@ async function register() {
     });
 
     const data = await res.json();
-<<<<<<< HEAD
 
     if (res.status === 201) {
-        document.getElementById("message").innerText =
-            "Registration successful! Redirecting to login...";
-
+        message.innerText = "Registration successful! Redirecting to login...";
         setTimeout(() => {
             window.location.href = "/login-page";
         }, 1500);
     } else {
-        document.getElementById("message").innerText = data.error;
+        message.innerText = data.error || "Registration failed";
     }
-=======
-    document.getElementById("message").innerText = data.message || data.error;
->>>>>>> ac87004a469b93976befbc5054771a30ce2ee785
 }
 
 async function login() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const message = document.getElementById("message");
+    message.innerText = "Logging in...";
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
     const res = await fetch(`${API}/login`, {
         method: "POST",
@@ -49,11 +46,10 @@ async function login() {
     if (res.status === 200) {
         window.location.href = "/dashboard";
     } else {
-        document.getElementById("message").innerText = data.error;
+        message.innerText = data.error || "Login failed";
     }
 }
 
-<<<<<<< HEAD
 function setFilter(status) {
     currentFilter = status;
     loadTasks();
@@ -77,10 +73,6 @@ async function loadTasks() {
     const search = document.getElementById("searchInput")?.value || "";
 
     const res = await fetch(`${API}/tasks?status=${currentFilter}&search=${search}`, {
-=======
-async function loadTasks() {
-    const res = await fetch(`${API}/tasks`, {
->>>>>>> ac87004a469b93976befbc5054771a30ce2ee785
         credentials: "include"
     });
 
@@ -91,7 +83,6 @@ async function loadTasks() {
     list.innerHTML = "";
 
     tasks.forEach(task => {
-<<<<<<< HEAD
         const warning = getDueWarning(task.due_date);
 
         const li = document.createElement("li");
@@ -104,46 +95,25 @@ async function loadTasks() {
             Status: ${task.status}<br>
             Priority: ${task.priority}<br>
             <span class="warning">${warning}</span><br>
-
-            <button onclick="editTask(${task.id}, '${escapeText(task.title)}', '${escapeText(task.description || "")}', '${task.due_date || ""}', '${task.status}', '${task.priority}')">Edit</button>
+            <button onclick="editTask(${task.id})">Edit</button>
             <button onclick="deleteTask(${task.id})">Delete</button>
         `;
 
-=======
-        const li = document.createElement("li");
-        li.innerHTML = `
-            <strong>${task.title}</strong><br>
-            ${task.description || ""}<br>
-            ${task.due_date || ""}<br>
-            <button onclick="deleteTask(${task.id})">Delete</button>
-        `;
->>>>>>> ac87004a469b93976befbc5054771a30ce2ee785
         list.appendChild(li);
     });
 }
 
-<<<<<<< HEAD
-function escapeText(text) {
-    return text.replace(/'/g, "\\'");
-}
-
-=======
->>>>>>> ac87004a469b93976befbc5054771a30ce2ee785
 async function createTask() {
-    const title = document.getElementById("title").value;
-    const description = document.getElementById("description").value;
+    const title = document.getElementById("title").value.trim();
+    const description = document.getElementById("description").value.trim();
     const due_date = document.getElementById("due_date").value;
-<<<<<<< HEAD
     const status = document.getElementById("status").value;
     const priority = document.getElementById("priority").value;
-=======
->>>>>>> ac87004a469b93976befbc5054771a30ce2ee785
 
     await fetch(`${API}/tasks`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         credentials: "include",
-<<<<<<< HEAD
         body: JSON.stringify({ title, description, due_date, status, priority })
     });
 
@@ -154,20 +124,20 @@ async function createTask() {
     loadTasks();
 }
 
-async function editTask(id, oldTitle, oldDescription, oldDueDate, oldStatus, oldPriority) {
-    const title = prompt("Edit title:", oldTitle);
+async function editTask(id) {
+    const title = prompt("Edit title:");
     if (title === null) return;
 
-    const description = prompt("Edit description:", oldDescription);
+    const description = prompt("Edit description:");
     if (description === null) return;
 
-    const due_date = prompt("Edit due date YYYY-MM-DD:", oldDueDate);
+    const due_date = prompt("Edit due date YYYY-MM-DD:");
     if (due_date === null) return;
 
-    const status = prompt("Edit status: Pending, In Progress, Completed", oldStatus);
+    const status = prompt("Edit status: Pending, In Progress, Completed", "Pending");
     if (status === null) return;
 
-    const priority = prompt("Edit priority: Low, Medium, High", oldPriority);
+    const priority = prompt("Edit priority: Low, Medium, High", "Medium");
     if (priority === null) return;
 
     await fetch(`${API}/tasks/${id}`, {
@@ -175,9 +145,6 @@ async function editTask(id, oldTitle, oldDescription, oldDueDate, oldStatus, old
         headers: {"Content-Type": "application/json"},
         credentials: "include",
         body: JSON.stringify({ title, description, due_date, status, priority })
-=======
-        body: JSON.stringify({ title, description, due_date })
->>>>>>> ac87004a469b93976befbc5054771a30ce2ee785
     });
 
     loadTasks();
