@@ -2,13 +2,21 @@
 
 Cloud Study Planner is a full-stack web application designed to help students organize and manage their academic tasks in one place. The system allows users to register, log in securely, and manage personal study tasks through a clean dashboard interface.
 
-This project was built as a cloud computing team project to demonstrate real-world web development concepts including backend APIs, authentication, databases, version control, and cloud deployment readiness.
+This project was built as a cloud computing team project to demonstrate real-world web development concepts, including backend APIs, authentication, databases, version control, and cloud deployment readiness.
+
+# Cloud Study Planner
+
+Cloud Study Planner is a full-stack web application designed to help students organize and manage their academic tasks in one place. The system allows users to register, log in securely, and manage personal study tasks through a clean dashboard interface.
+
+## 🌐 Live Application
+
+http://3.134.89.182:5000
 
 ## Features
 
 - User registration and secure login
 - Personal dashboard for task management
-- Create, view, update, and delete study tasks
+- Full task CRUD: create, view, update, and delete
 - Task status tracking: Pending, In Progress, Completed
 - Priority levels: Low, Medium, High
 - Search and filter tasks
@@ -18,7 +26,8 @@ This project was built as a cloud computing team project to demonstrate real-wor
 - Rate limiting for API protection
 - Responsive frontend interface
 - GitHub version control collaboration
-- Docker and AWS deployment ready
+- Docker containerization
+- AWS EC2 deployment (live public URL)
 
 ## Technologies Used
 
@@ -37,28 +46,46 @@ This project was built as a cloud computing team project to demonstrate real-wor
 
 ### Database
 - SQLite (development)
-- AWS RDS ready (production)
+- AWS-ready architecture (production)
 
 ### DevOps / Tools
 - Git
 - GitHub
 - PyCharm
-- Docker (planned)
-- AWS EC2 (planned)
+- Docker
+- AWS EC2
+- GitHub Actions (CI/CD)
 
 ## Project Structure
 
 cloud-study-planner/
-│── app.py  
-│── config.py  
-│── models.py  
-│── extensions.py  
-│── requirements.txt  
-│── routes/  
-│   ├── auth.py  
-│   └── tasks.py  
-│── templates/  
-│── static/
+│── app.py # Application entry point
+│── config.py # Configuration settings
+│── models.py # Database models (User, Task)
+│── extensions.py # Flask extensions initialization
+│── requirements.txt # Python dependencies
+│── Dockerfile # Docker configuration
+│── .github/workflows/ # CI/CD pipeline (GitHub Actions)
+│
+├── routes/
+│ ├── auth.py # Authentication routes
+│ └── tasks.py # Task management API
+│
+├── templates/ # HTML templates
+├── static/ # CSS, JavaScript files
+
+## Deployment
+
+The application is deployed on AWS EC2 using Docker.
+
+Steps:
+1. Build Docker image
+2. Run container on port 5000
+3. Configure the EC2 security group to allow traffic on port 5000
+4. Access via public IPv4 address
+
+Public URL:
+http://3.134.89.182:5000
 
 ## Current Progress
 
@@ -68,30 +95,26 @@ cloud-study-planner/
 - Full task CRUD functionality working
 - Task editing, filtering, search, priority, and due-date warning features added
 - GitHub Actions CI/CD workflow completed
-- Dockerfile added for containerization
+- Docker containerization completed
+- AWS EC2 deployment completed (public URL available)
 - API documentation completed
 - GitHub repository active
 
+## API Documentation
 
-## Latest Progress (Check-In #2)
+Full API documentation is available in:
 
-- Completed functional user registration and login system
-- Dashboard supports task creation and deletion
-- Frontend connected successfully to Flask backend
-- Database integration completed for users and tasks
-- GitHub repository updated with active commits
-- Project ready for next phase: Docker and AWS deployment
+API_DOCUMENTATION.md
+
 
 ## Future Improvements
 
-- Task editing and status updates
-- Search and filtering tasks
-- Charts and productivity analytics
+- Advanced task analytics and productivity charts
 - Dark mode UI
-- Docker containerization
-- AWS EC2 deployment
-- AWS RDS cloud database
-- CI/CD with GitHub Actions
+- Email notifications and reminders
+- Multi-user collaboration (shared tasks)
+- Migration to AWS RDS for production database
+- HTTPS deployment with a custom domain
 
 ## Team Collaboration
 
@@ -99,4 +122,4 @@ This project was developed collaboratively using GitHub version control with div
 
 ## Author
 
-Developed by Fadhil Al Salihi and Thomas 
+Developed by Fadhil Al Salihi and Thomas Stone
