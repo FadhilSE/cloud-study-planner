@@ -5,79 +5,45 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-<div class="dashboard-wrapper">
+<div class="container dashboard-container">
+    <h2>Cloud Study Planner Dashboard</h2>
 
-    <div class="dashboard-header">
-        <div>
-            <h1>Cloud Study Planner</h1>
-            <p>Manage your academic tasks, deadlines, and priorities.</p>
-        </div>
+    <input id="title" placeholder="Task title">
+    <input id="description" placeholder="Description">
+    <input id="due_date" type="date">
 
-        <div class="user-box">
+    <select id="status">
+        <option>Pending</option>
+        <option>In Progress</option>
+        <option>Completed</option>
+    </select>
 
-    <div class="user-profile">
-        <div class="avatar-circle" id="userInitial">
-            U
-        </div>
+    <select id="priority">
+        <option>Low</option>
+        <option selected>Medium</option>
+        <option>High</option>
+    </select>
 
-        <div class="user-info">
-            <small>Welcome</small>
-            <strong id="userName">Loading...</strong>
-        </div>
+    <button onclick="createTask()">Add Task</button>
+
+    <hr>
+
+    <input id="searchInput" placeholder="Search tasks..." oninput="loadTasks()">
+
+    <div class="filters">
+        <button onclick="setFilter('All')">All</button>
+        <button onclick="setFilter('Pending')">Pending</button>
+        <button onclick="setFilter('In Progress')">In Progress</button>
+        <button onclick="setFilter('Completed')">Completed</button>
     </div>
 
-    <button class="logout-btn" onclick="logout()">Logout</button>
+    <ul id="taskList"></ul>
 
-</div>
-    </div>
-
-    <div class="dashboard-grid">
-
-        <div class="card form-card">
-            <h2>➕ Add New Task</h2>
-
-            <input id="title" placeholder="Task title">
-            <input id="description" placeholder="Description">
-            <input id="due_date" type="date">
-
-            <div class="row">
-                <select id="status">
-                    <option>Pending</option>
-                    <option>In Progress</option>
-                    <option>Completed</option>
-                </select>
-
-                <select id="priority">
-                    <option>Low</option>
-                    <option selected>Medium</option>
-                    <option>High</option>
-                </select>
-            </div>
-
-            <button class="primary-btn" onclick="createTask()">Add Task</button>
-        </div>
-
-        <div class="card task-card-section">
-            <h2>📋 My Tasks</h2>
-
-            <input id="searchInput" placeholder="Search tasks..." oninput="loadTasks()">
-
-            <div class="filters">
-                <button onclick="setFilter('All')">All</button>
-                <button onclick="setFilter('Pending')">Pending</button>
-                <button onclick="setFilter('In Progress')">In Progress</button>
-                <button onclick="setFilter('Completed')">Completed</button>
-            </div>
-
-            <ul id="taskList"></ul>
-        </div>
-
-    </div>
+    <button onclick="logout()">Logout</button>
 </div>
 
 <script src="/static/app.js"></script>
 <script>
-    loadCurrentUser();
     loadTasks();
 </script>
 </body>
