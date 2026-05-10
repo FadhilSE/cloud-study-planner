@@ -1,6 +1,28 @@
 const API = "/api";
 let currentFilter = "All";
+let tasksCache = [];
 
+async function loadCurrentUser() {
+    const res = await fetch(`${API}/me`, {
+        credentials: "include"
+    });
+
+    if (res.status === 200) {
+        const user = await res.json();
+
+        const userName = document.getElementById("userName");
+
+        if (userName) {
+           userName.innerText = user.username;
+
+const initial = document.getElementById("userInitial");
+
+if (initial) {
+    initial.innerText = user.username.charAt(0).toUpperCase();
+}
+        }
+    }
+}
 async function register() {
     const message = document.getElementById("message");
     message.innerText = "Registering...";
@@ -79,6 +101,8 @@ async function loadTasks() {
     if (res.status !== 200) return;
 
     const tasks = await res.json();
+    tasksCache = tasks;
+
     const list = document.getElementById("taskList");
     list.innerHTML = "";
 
@@ -86,15 +110,20 @@ async function loadTasks() {
         const warning = getDueWarning(task.due_date);
 
         const li = document.createElement("li");
-        li.className = `task-card ${task.priority.toLowerCase()} ${warning.toLowerCase().replace(" ", "-")}`;
+
+        li.className =
+            `task-card ${task.priority.toLowerCase()} ${warning.toLowerCase().replace(" ", "-")}`;
+
+        li.id = `task-${task.id}`;
 
         li.innerHTML = `
-            <strong>${task.title}</strong><br>
-            ${task.description || ""}<br>
-            Due: ${task.due_date || "No due date"}<br>
-            Status: ${task.status}<br>
-            Priority: ${task.priority}<br>
-            <span class="warning">${warning}</span><br>
+            <strong>📌 ${task.title}</strong><br>
+            📝 ${task.description || "No description"}<br>
+            📅 Due: ${task.due_date || "No due date"}<br>
+            📊 Status: ${task.status}<br>
+            🔥 Priority: ${task.priority}<br>
+            <span class="warning">⏰ ${warning}</span><br>
+
             <button onclick="editTask(${task.id})">Edit</button>
             <button onclick="deleteTask(${task.id})">Delete</button>
         `;
@@ -125,31 +154,89 @@ async function createTask() {
 }
 
 async function editTask(id) {
-    const title = prompt("Edit title:");
-    if (title === null) return;
 
-    const description = prompt("Edit description:");
-    if (description === null) return;
+    const task = tasksCache.find(t => t.id === id);
 
-    const due_date = prompt("Edit due date YYYY-MM-DD:");
-    if (due_date === null) return;
+    if (!task) return;
 
-    const status = prompt("Edit status: Pending, In Progress, Completed", "Pending");
-    if (status === null) return;
+    const li = document.getElementById(`task-${id}`);
 
-    const priority = prompt("Edit priority: Low, Medium, High", "Medium");
-    if (priority === null) return;
+    li.innerHTML = `
+        <input id="edit-title-${id}" value="${task.title}">
+        
+        <input id="edit-description-${id}"
+               value="${task.description || ""}">
+
+        <input id="edit-due-${id}"
+               type="date"
+               value="${task.due_date || ""}">
+
+        <select id="edit-status-${id}">
+            <option ${task.status === "Pending" ? "selected" : ""}>
+                Pending
+            </option>
+
+            <option ${task.status === "In Progress" ? "selected" : ""}>
+                In Progress
+            </option>
+
+            <option ${task.status === "Completed" ? "selected" : ""}>
+                Completed
+            </option>
+        </select>
+
+        <select id="edit-priority-${id}">
+            <option ${task.priority === "Low" ? "selected" : ""}>
+                Low
+            </option>
+
+            <option ${task.priority === "Medium" ? "selected" : ""}>
+                Medium
+            </option>
+
+            <option ${task.priority === "High" ? "selected" : ""}>
+                High
+            </option>
+        </select>
+
+        <button onclick="saveTask(${id})">Save</button>
+        <button onclick="loadTasks()">Cancel</button>
+    `;
+}
+
+async function saveTask(id) {
+
+    const title =
+        document.getElementById(`edit-title-${id}`).value.trim();
+
+    const description =
+        document.getElementById(`edit-description-${id}`).value.trim();
+
+    const due_date =
+        document.getElementById(`edit-due-${id}`).value;
+
+    const status =
+        document.getElementById(`edit-status-${id}`).value;
+
+    const priority =
+        document.getElementById(`edit-priority-${id}`).value;
 
     await fetch(`${API}/tasks/${id}`, {
         method: "PUT",
         headers: {"Content-Type": "application/json"},
         credentials: "include",
-        body: JSON.stringify({ title, description, due_date, status, priority })
+
+        body: JSON.stringify({
+            title,
+            description,
+            due_date,
+            status,
+            priority
+        })
     });
 
     loadTasks();
 }
-
 async function deleteTask(id) {
     await fetch(`${API}/tasks/${id}`, {
         method: "DELETE",
