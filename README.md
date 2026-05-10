@@ -25,6 +25,7 @@ http://3.134.89.182:5000
 - GitHub version control collaboration
 - Docker containerization
 - AWS EC2 deployment (live public URL)
+- Automated AWS deployment using GitHub Actions, Amazon ECR, and AWS SSM
 
 ## 🛠️Technologies Used
 
@@ -46,12 +47,17 @@ http://3.134.89.182:5000
 - AWS-ready architecture (production)
 
 ### DevOps / Tools
-- Git
-- GitHub
-- PyCharm
 - Docker
 - AWS EC2
-- GitHub Actions (CI/CD)
+- Amazon ECR
+- AWS Systems Manager (SSM)
+- GitHub Actions CI/CD
+- OIDC Authentication
+
+## 🚀 Deployment Workflow
+
+GitHub Push → GitHub Actions → Docker Build → Amazon ECR → AWS EC2 Deployment via SSM
+
 
 ## 📁Project Structure
 
@@ -93,9 +99,12 @@ http://3.134.89.182:5000
 - Task editing, filtering, search, priority, and due-date warning features added
 - GitHub Actions CI/CD workflow completed
 - Docker containerization completed
-- AWS EC2 deployment completed (public URL available)
 - API documentation completed
 - GitHub repository active
+- Automated CI/CD deployment pipeline completed
+- Docker images automatically pushed to Amazon ECR
+- AWS EC2 auto-deployment configured using AWS SSM
+
 
 ## 📘API Documentation
 
@@ -107,16 +116,19 @@ API_DOCUMENTATION.md
 ## 🔮Future Improvements
 
 - Advanced task analytics and productivity charts
-- Dark mode UI
+- Docker containerization
 - Email notifications and reminders
 - Multi-user collaboration (shared tasks)
 - Migration to AWS RDS for production database
 - HTTPS deployment with a custom domain
+- CI/CD with GitHub Actions
+- AWS EC2 deployment
+
 
 ## 👥Team Collaboration
 
 This project was developed collaboratively using GitHub version control with divided responsibilities across backend development, frontend UI, testing, and deployment preparation.
 
-## Author
+## 👨‍💻 Author
 
 Developed by Fadhil Al Salihi and Thomas Stone
