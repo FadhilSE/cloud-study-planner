@@ -7,7 +7,7 @@ Cloud Study Planner is a full-stack web application designed to help students or
 
 ## 🌐 Live Application
 
-http://3.134.89.182:5000
+http://54.160.248.195:5000
 
 ## ✨Features
 
