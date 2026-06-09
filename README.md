@@ -112,6 +112,13 @@ Full API documentation is available in:
 
 API_DOCUMENTATION.md
 
+## Screenshots
+![Login](screenshots/login-page.png)
+![Dashboard](screenshots/dashboard.png)
+![Task](screenshots/task-creation.png)
+![AWS deployment](screenshots/aws-deployment.png)
+
+
 
 ## 🔮Future Improvements
 
