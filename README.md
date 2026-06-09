@@ -112,11 +112,20 @@ Full API documentation is available in:
 
 API_DOCUMENTATION.md
 
-## Screenshots
-![Login](screenshots/login-page.png)
-![Dashboard](screenshots/dashboard.png)
-![Task](screenshots/task-creation.png)
-![AWS deployment](screenshots/aws-deployment.png)
+
+## 📸 Screenshots
+
+### 🔐Login Page
+![Login Page](screenshots/login%20page%20screenshot.png)
+
+### 📊Dashboard
+![Dashboard](screenshots/dashboard%20screenshot.png)
+
+### ✅Task Creation
+![Task Creation](screenshots/task%20creation%20screenshot.png)
+
+### ☁️AWS Deployment Running
+![AWS Deployment](screenshots/AWS%20deployment%20screenshot.png)
 
 
 
@@ -134,8 +143,8 @@ API_DOCUMENTATION.md
 
 ## 👥Team Collaboration
 
-This project was developed collaboratively using GitHub version control with divided responsibilities across backend development, frontend UI, testing, and deployment preparation.
+This project was developed collaboratively using GitHub version control, with responsibilities divided among backend development, frontend UI, testing, and deployment preparation.
 
 ## 👨‍💻 Author
 
-Developed by Fadhil Al Salihi and Thomas Stone
+Developed by Fadhil Al Salihi 
