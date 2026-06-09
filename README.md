@@ -88,7 +88,7 @@ Steps:
 4. Access via public IPv4 address
 
 Public URL:
-http://3.134.89.182:5000
+http://54.160.248.195:5000
 
 ## 📌Current Progress
 
